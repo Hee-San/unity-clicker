@@ -7,6 +7,7 @@ public class Clicker : MonoBehaviour {
 	int    ClickCount;
 	public ClickScoreText clickScoreText;
 	public GameObject bread;
+	public GameObject ClickUI;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,9 @@ public class Clicker : MonoBehaviour {
 					clickScoreText.GetComponent<ClickScoreText> ().score += Click_gpa;
 					//縮小
 					obj.transform.localScale = new Vector3 (0.95f, 0.95f, 1);
+					//ClickUI出現、1秒後に削除
+					GameObject ClickUIObj = (GameObject)Instantiate(ClickUI, new Vector3(aTapPoint.x, aTapPoint.y,0), Quaternion.identity);
+					Destroy (ClickUIObj, 1);
 				} else if(Input.GetMouseButton(0)){
 					//縮小
 					obj.transform.localScale = new Vector3 (0.95f, 0.95f, 1);
