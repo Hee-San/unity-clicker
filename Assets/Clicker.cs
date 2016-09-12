@@ -21,6 +21,7 @@ public class Clicker : MonoBehaviour {
 	            GameObject obj = aCollider2d.transform.gameObject;
 	            Debug.Log (obj.name);
 
+				//クリック回数を追加
 	            if (obj.name == "Cookie") {
 	                ClickCount++;
 	                Debug.Log (ClickCount);
