@@ -42,7 +42,7 @@ public class Clicker : MonoBehaviour {
 					Destroy (ClickUIObj, 1);
 				} else if(Input.GetMouseButton(0)){
 					//縮小
-					obj.transform.localScale = new Vector3 (0.95f, 0.95f, 1);
+					obj.transform.localScale = new Vector3 (0.98f, 0.98f, 1);
 				} else {
 					//少し拡大
 					obj.transform.localScale = new Vector3 (1.05f, 1.05f, 1);
