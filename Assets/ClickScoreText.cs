@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ClickScoreText : MonoBehaviour {
 	
-	public int score = 0;
+	public float score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +13,6 @@ public class ClickScoreText : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		this.GetComponent<Text> ().text = score.ToString () + " Cookies";
+		this.GetComponent<Text> ().text = (score*0.01).ToString () + " GPA";
 	}
 }

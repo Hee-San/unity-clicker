@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Clicker : MonoBehaviour {
 	//クソゲー
+	public float  Click_gpa;
 	int    ClickCount;
 	public ClickScoreText clickScoreText;
+	public GameObject bread;
 
 	// Use this for initialization
 	void Start () {
@@ -12,23 +14,41 @@ public class Clicker : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetMouseButtonDown (0)) {
-         
-	        Vector3 aTapPoint = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-	        Collider2D aCollider2d = Physics2D.OverlapPoint (aTapPoint);
-	 
-	        if (aCollider2d) {
-	            GameObject obj = aCollider2d.transform.gameObject;
-	            Debug.Log (obj.name);
+		//マウス座標、何の上にカーソルがあるか
+		Vector3 aTapPoint = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		Collider2D aCollider2d = Physics2D.OverlapPoint (aTapPoint);
 
-				//クリック回数を追加
-	            if (obj.name == "Cookie") {
-	                ClickCount++;
-	                Debug.Log (ClickCount);
-					clickScoreText.GetComponent<ClickScoreText> ().score++;
-                }
-            }
-        }
+		//何かColliderの上にカーソルがあるなら
+		if (aCollider2d) {
+			//カーソル下のGameObject取得
+			GameObject obj = aCollider2d.transform.gameObject;
+			Debug.Log (obj.name);
+
+			//もし単位パンなら
+			if (obj == bread) {
+				
+
+				//クリックされたら
+				if (Input.GetMouseButtonDown (0)) {
+					//クリック回数を追加
+					ClickCount++;
+					Debug.Log (ClickCount);
+					clickScoreText.GetComponent<ClickScoreText> ().score += Click_gpa;
+					//縮小
+					obj.transform.localScale = new Vector3 (0.95f, 0.95f, 1);
+				} else if(Input.GetMouseButton(0)){
+					//縮小
+					obj.transform.localScale = new Vector3 (0.95f, 0.95f, 1);
+				} else {
+					//少し拡大
+					obj.transform.localScale = new Vector3 (1.05f, 1.05f, 1);
+				}
+			} else {
+				bread.transform.localScale = new Vector3 (1, 1, 1);
+			}
+		}else {
+			bread.transform.localScale = new Vector3 (1, 1, 1);
+		}
     }
 
 }
