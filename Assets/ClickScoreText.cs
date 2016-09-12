@@ -13,6 +13,6 @@ public class ClickScoreText : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		this.GetComponent<Text> ().text = score.ToString () + "回";
+		this.GetComponent<Text> ().text = score.ToString () + "Clicks";
 	}
 }
