@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Clicker : MonoBehaviour {
-	
+	//クソゲー
 	int    ClickCount;
 	public ClickScoreText clickScoreText;
 
