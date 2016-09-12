@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Clicker : MonoBehaviour {
 	//クソゲー
@@ -41,6 +42,7 @@ public class Clicker : MonoBehaviour {
 
 					//ClickUI出現、1秒後に削除
 					GameObject ClickUIObj = (GameObject)Instantiate (ClickUI, new Vector3 (aTapPoint.x, aTapPoint.y, 0), Quaternion.identity);
+					ClickUIObj.transform.FindChild("Text").GetComponent<Text> ().text = "+" + (Click_gpa*0.01).ToString ();
 					Destroy (ClickUIObj, 1);
 
 				} else if (Input.GetMouseButton (0)) {
