@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class Clicker : MonoBehaviour {
+	
 	int    ClickCount;
+	public ClickScoreText clickScoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,7 @@ public class Clicker : MonoBehaviour {
 	            if (obj.name == "Cookie") {
 	                ClickCount++;
 	                Debug.Log (ClickCount);
+					clickScoreText.GetComponent<ClickScoreText> ().score++;
                 }
             }
         }
